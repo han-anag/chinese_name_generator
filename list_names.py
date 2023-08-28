@@ -9,6 +9,7 @@ with open('surnames.csv', newline='', encoding='utf-8-sig') as csvfile:
     #    pass
     #    #print(row)
     
+    # Currently makes a list of lists, each containing a single name, instead of one single list where each element is a name
     # An array of strings, each element being a family name
     list_names = []
     for row in names:
