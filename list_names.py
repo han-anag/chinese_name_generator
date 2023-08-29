@@ -16,10 +16,17 @@ with open('surnames.csv', newline='', encoding='utf-8-sig') as csvfile:
 
     # print(list_surnames)
 
-for surname in list_surnames:
-    # Remove '\xa0' character if present
-    if "\xa0" in surname:
-        surname = surname.replace('\xa0', ' ')
-    print(surname)
-    
+# Remove '\xa0' character if present
+for i in range(len(list_surnames)):
+    if "\xa0" in list_surnames[i]:
+        list_surnames[i] = list_surnames[i].replace(u'\xa0', u' ')
+
+
+# print(list_surnames)
+
 # Put names into dictionary
+dict_surnames = {}
+for surname in list_surnames:
+    dict_surnames[surname[0:surname.find(' ')]] = surname[(surname.find(' ')) + 1:len(surname)]
+
+print(dict_surnames)
