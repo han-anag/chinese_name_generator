@@ -5,26 +5,21 @@ import re
 with open('surnames.csv', newline='', encoding='utf-8-sig') as csvfile:
     names = csv.reader(csvfile)
     # for row in names:
-    #    # print(''.join(row))
+    #    print(''.join(row))
     #    pass
     #    #print(row)
     
-    # Currently makes a list of lists, each containing a single name, instead of one single list where each element is a name
     # An array of strings, each element being a family name
-    list_names = []
+    list_surnames = []
     for row in names:
-        list_names.append(row)
-        #print(row)
+        list_surnames.append(row[0])
 
-    print(list_names)
+    # print(list_surnames)
 
-    # print(list_names)
-    # for name in list_names:
-    #     print(list_names.split())
-
-    # for surname in list_names:
-    #     # Remove '\xa0' character if present
-    #     if "\xa0" in surname:
-    #         surname = surname.replace('\xa0', ' ')
-    #     print(surname, type(surname))
+for surname in list_surnames:
+    # Remove '\xa0' character if present
+    if "\xa0" in surname:
+        surname = surname.replace('\xa0', ' ')
+    print(surname)
+    
 # Put names into dictionary
