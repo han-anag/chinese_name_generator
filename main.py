@@ -7,3 +7,13 @@ Furthermore, the program can also generate a random given name from a list, and 
 The program can generate individual family names, individual given names, or both a family name and given name.
 It can also display it in Asian order (Family Name - Given Name) or Western Order (Given Name - Family Name)
 """
+import names_class
+
+if __name__ == "__main__":
+    name = names_class.chinese_name()
+    name.generate_surname()
+    
+    last_name = name.return_surname()
+    last_name_character = name.return_surname_character()
+    #print(type(surname))
+    print(f"Your family name is {last_name} {last_name_character}")
