@@ -21,7 +21,6 @@ for i in range(len(list_surnames)):
     if "\xa0" in list_surnames[i]:
         list_surnames[i] = list_surnames[i].replace(u'\xa0', u' ')
 
-
 # print(list_surnames)
 
 # Put names into dictionary
