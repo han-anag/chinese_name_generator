@@ -35,9 +35,8 @@ for surname in list_surnames:
 with open('top_first_names_per_decade.csv', newline='', encoding='utf-8-sig') as csvfile:
     firstnames = csv.reader(csvfile)
     for row in firstnames:
-       print(''.join(row))
-       pass
-       #print(row)
+       # print('/'.join(row))
+       print(row)
     
     # An array of strings, each element being a family name
     list_firstnames = []
