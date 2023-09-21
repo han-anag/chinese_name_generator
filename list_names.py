@@ -1,17 +1,18 @@
 import csv
 import re
 
+"""Sets up generation of surnames"""
 # Open the .csv file of family name characters and Pinyin, encode without the byte order mark (BOM)
 with open('surnames.csv', newline='', encoding='utf-8-sig') as csvfile:
-    names = csv.reader(csvfile)
-    # for row in names:
+    lastnames = csv.reader(csvfile)
+    # for row in lastnames:
     #    print(''.join(row))
     #    pass
     #    #print(row)
     
     # An array of strings, each element being a family name
     list_surnames = []
-    for row in names:
+    for row in lastnames:
         list_surnames.append(row[0])
 
     # print(list_surnames)
@@ -29,3 +30,19 @@ for surname in list_surnames:
     dict_surnames[surname[0:surname.find(' ')]] = surname[(surname.find(' ')) + 1:len(surname)]
 
 #print(dict_surnames)
+
+"""Sets up generation of given names"""
+with open('top_first_names_per_decade.csv', newline='', encoding='utf-8-sig') as csvfile:
+    firstnames = csv.reader(csvfile)
+    for row in firstnames:
+       print(''.join(row))
+       pass
+       #print(row)
+    
+    # An array of strings, each element being a family name
+    list_firstnames = []
+    for row in firstnames:
+        list_firstnames.append(row[0])
+
+if __name__ == "__main__":
+    print(list_firstnames)
