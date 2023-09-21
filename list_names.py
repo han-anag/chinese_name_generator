@@ -1,5 +1,4 @@
 import csv
-import random
 import re
 
 # Open the .csv file of family name characters and Pinyin, encode without the byte order mark (BOM)
@@ -30,5 +29,3 @@ for surname in list_surnames:
     dict_surnames[surname[0:surname.find(' ')]] = surname[(surname.find(' ')) + 1:len(surname)]
 
 #print(dict_surnames)
-
-#random_surname = random.choice(sorted(dict_surnames))

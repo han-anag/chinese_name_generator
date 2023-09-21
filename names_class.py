@@ -9,6 +9,7 @@ class chinese_name:
         self.last_character = last_character
     
     def generate_surname(self):
+        #random_surname = random.choice(sorted(dict_surnames))
         random_surname_character = random.choice(list(dict_surnames.keys()))
         random_surname = dict_surnames[random_surname_character]
 
