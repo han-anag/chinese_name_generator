@@ -9,9 +9,9 @@ for col in surnames.columns:
     print(col, type(col))
 
 surnames.rename(columns={0: 'Character'}, inplace=True)
-surnames['Character'].str.split(' ', expand=True)
+surnames[['Character', 'Pinyin']] = surnames['Character'].str.split(' ', expand=True)
 
-print('After changes:\n', surnames.head())
+print('After changes:\n', surnames)
 
 
 # # Open the .csv file of family name characters and Pinyin, encode without the byte order mark (BOM)
