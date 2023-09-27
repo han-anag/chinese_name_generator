@@ -3,9 +3,15 @@ import pandas as pd
 
 """Sets up generation of surnames"""
 surnames = pd.read_csv('surnames.csv', header=None)
-print(surnames.head())
-surnames[0].str.split(' ', expand=True)
-print(surnames.head())
+#print('Before changes:', surnames.head())
+
+for col in surnames.columns:
+    print(col, type(col))
+
+surnames.rename(columns={0: 'Character'}, inplace=True)
+surnames['Character'].str.split(' ', expand=True)
+
+print('After changes:\n', surnames.head())
 
 
 # # Open the .csv file of family name characters and Pinyin, encode without the byte order mark (BOM)
