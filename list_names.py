@@ -6,9 +6,11 @@ surnames = pd.read_csv('surnames.csv', encoding='utf8', header=None)
 
 surnames.rename(columns={0: 'Character'}, inplace=True)
 
+#Doing pandas split on the columns misses a few rows for some reason, so do this to make up for it
 surnames['Character'] = surnames.apply(lambda row : row['Character'].split(), axis = 1)
 surnames['Character'] = surnames.apply(lambda row : ','.join(row['Character']), axis = 1)
 
+#Actually split the column into two
 surnames[['Character','Pinyin']] = surnames['Character'].str.split(',', expand=True)
 
 print(surnames)
