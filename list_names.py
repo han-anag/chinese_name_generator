@@ -2,18 +2,19 @@ import csv
 import pandas as pd
 
 """Sets up generation of surnames"""
-surnames = pd.read_csv('surnames.csv', header=None)
+surnames = pd.read_csv('surnames.csv', encoding='utf8', header=None)
 #print('Before changes:', surnames.head())
 
-for col in surnames.columns:
-    print(col, type(col))
-
 surnames.rename(columns={0: 'Character'}, inplace=True)
+
+# surnames.to_csv('pandas_surnames.csv')
+
 surnames[['Character', 'Pinyin']] = surnames['Character'].str.split(' ', expand=True)
+surnames['Character'].str.split('  ',expand=True)
 
-print('After changes:\n', surnames)
-
-
+print(surnames.head())
+#print('After changes:\n', surnames.head())
+print(surnames.dtypes)
 # # Open the .csv file of family name characters and Pinyin, encode without the byte order mark (BOM)
 # with open('surnames.csv', newline='', encoding='utf-8-sig') as csvfile:
 #     lastnames = csv.reader(csvfile)
