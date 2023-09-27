@@ -9,8 +9,10 @@ surnames.rename(columns={0: 'Character'}, inplace=True)
 
 # surnames.to_csv('pandas_surnames.csv')
 
-surnames[['Character', 'Pinyin']] = surnames['Character'].str.split(' ', expand=True)
-surnames['Character'].str.split('  ',expand=True)
+surnames['Character'] = surnames.apply(lambda row : row['Character'].split(), axis = 1)
+
+surnames['Pinyin'] = surnames['Character'].str.split(',', expand=True)
+#surnames['Character'].str.split('  ',expand=True)
 
 print(surnames.head())
 #print('After changes:\n', surnames.head())
