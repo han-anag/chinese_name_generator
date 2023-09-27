@@ -3,20 +3,17 @@ import pandas as pd
 
 """Sets up generation of surnames"""
 surnames = pd.read_csv('surnames.csv', encoding='utf8', header=None)
-#print('Before changes:', surnames.head())
 
 surnames.rename(columns={0: 'Character'}, inplace=True)
 
-# surnames.to_csv('pandas_surnames.csv')
-
 surnames['Character'] = surnames.apply(lambda row : row['Character'].split(), axis = 1)
+surnames['Character'] = surnames.apply(lambda row : ','.join(row['Character']), axis = 1)
 
-surnames['Pinyin'] = surnames['Character'].str.split(',', expand=True)
-#surnames['Character'].str.split('  ',expand=True)
+surnames[['Character','Pinyin']] = surnames['Character'].str.split(',', expand=True)
 
-print(surnames.head())
-#print('After changes:\n', surnames.head())
-print(surnames.dtypes)
+print(surnames)
+# TODO: Turn Character and Pinyin columns into dictionary
+
 # # Open the .csv file of family name characters and Pinyin, encode without the byte order mark (BOM)
 # with open('surnames.csv', newline='', encoding='utf-8-sig') as csvfile:
 #     lastnames = csv.reader(csvfile)
